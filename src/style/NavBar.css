@@ -1,0 +1,27 @@
+.bar {
+   background-color: darkcyan;
+}
+.logo {
+    background-color: yellow;
+    margin: 20px;
+}
+
+.categories ul {
+    justify-content: center;
+    align-items: center;
+}
+
+.categories li{
+    display:inline;
+    margin-right: 15px;
+    padding: 7px;
+    /* padding-bottom: 10px; */
+}
+
+.categories a{
+    padding: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-weight:600;
+    align-items: center;
+}

@@ -1,12 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <NavBar />
+      <ItemListContainer greeting={'Hola Gabriel!!'} />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p className='text-3xl font-bold underline'>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
@@ -17,7 +21,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
