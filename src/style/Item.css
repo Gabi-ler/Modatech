@@ -1,0 +1,9 @@
+.itemCard{
+    border: solid 2px grey;
+    width: 250px;
+    height: 380px;
+}
+
+.imagen {
+    height: 250px;
+}

@@ -1,5 +1,9 @@
-.bar {
+.barra {
    background-color: darkcyan;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 .logo {
     background-color: yellow;
@@ -13,9 +17,7 @@
 
 .categories li{
     display:inline;
-    margin-right: 15px;
     padding: 7px;
-    /* padding-bottom: 10px; */
 }
 
 .categories a{
@@ -24,4 +26,12 @@
     text-transform: uppercase;
     font-weight:600;
     align-items: center;
+}
+
+.cart {
+    display: inline-flex;
+}
+
+.cart div {
+    margin-right: 5px;
 }

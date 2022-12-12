@@ -1,0 +1,14 @@
+.container-page {
+    border: solid 1px;
+    margin: 60px;
+}
+
+.size-img {
+    width: 450px;
+    height: auto;
+}
+
+.border-img {
+    border: solid 1px rgb(182, 178, 178);
+    margin: 30px;
+}
