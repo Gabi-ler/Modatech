@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import { productos } from '../Data/Products';
 import { useParams } from 'react-router-dom';
+import Loader from './Loader';
+
 const ItemList = () => {
 
     const [products, setProducts] = useState([]);
@@ -36,14 +38,14 @@ const ItemList = () => {
             setTimeout(() => {
                 resolve(productos)
                 // reject(`<h1>no se encontraron resultados</h1>`)
-            }, 2500);
+            }, 1500);
         })
     }
 
     return (
         <div>
             <h1 className='my-4'>Lista de productos</h1>
-            <div className='flex justify-evenly my-5 mx-2 py-3 '>
+            <div className='flex justify-evenly my-5 mx-2 py-3 flex-wrap'>
                 {products.length
                     ?
                 products.map((prod) => <Item
@@ -55,7 +57,8 @@ const ItemList = () => {
                     {...prod}
                 /> ) 
                 : 
-                    <h2 className='text-lg font-bold'>Cargando...</h2>}
+                <Loader/>
+                }
             </div>
         </div>
     );
