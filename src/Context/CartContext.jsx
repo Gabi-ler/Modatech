@@ -51,9 +51,18 @@ const CartContext = ({ children }) => {
         setCart([])
     }
 
+    const totalPrice = () => {
+        let total = 0;
+        cart.forEach(product => {
+            const totalProduct = product.price * product.cantidad;
+            total += totalProduct;
+        });
+        return total;
+    }
+    
     return (
         <div>
-            <Contexto.Provider value={{ cart, addNewProduct, deleteProduct, quantityProducts, emptyCart }}>
+            <Contexto.Provider value={{ cart, addNewProduct, deleteProduct, quantityProducts, emptyCart, totalPrice }}>
                 {children}
             </Contexto.Provider>
         </div>

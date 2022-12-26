@@ -2,7 +2,7 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Form, Route, Routes } from 'react-router-dom'
 import ItemDetail from './pages/ItemDetail';
 import Footer from './components/Footer';
 import ClickEvent from './components/ClickEvent';
@@ -10,6 +10,8 @@ import ClickChange from './components/ClickChange';
 import Cart from './components/Cart';
 import CartContext from './Context/CartContext';
 import ItemCart from './components/ItemCart';
+import CardData from './pages/CardData';
+// import form from './pages/Form';
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
           <Route path='/event' element={<ClickEvent/>}/>
           <Route path='/change' element={<ClickChange/>}/>
           <Route path='/itemcart' element={<ItemCart/>}/>
+          <Route path='/carddata' element={<CardData/>}/>
+          {/* <Route path='/formulario' element={<form/>}/> */}
         </Routes>
         <Footer/>
         {/* <header className="App-header">

@@ -4,7 +4,7 @@ import { useCartContext } from '../Context/CartContext';
 
 const CartWidget = () => {
     
-    const { quantityProducts } = useCartContext()
+    const { quantityProducts, totalPrice } = useCartContext()
 
     return (
         <div>
@@ -18,9 +18,9 @@ const CartWidget = () => {
                     <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
                         <div className="card-body items-center">
                             <span className="font-bold text-lg">{quantityProducts()}</span>
-                            <span className="text-info">Subtotal: $999</span>
+                            <span className="text-info">Subtotal: ${totalPrice()}</span>
                             <div className="card-actions">
-                            <Link to={'/carrito'}><button className="btn btn-primary btn-block ">Ver carrito</button></Link>
+                            <Link to={'/carrito'}><button className="btn btn-primary btn-block">Ver carrito</button></Link>
                             </div>
                         </div>
                     </div>

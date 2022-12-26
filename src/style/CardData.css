@@ -1,0 +1,10 @@
+.form {
+    border: solid 2px black;
+    width: 50%;
+    
+}
+
+.displa {
+    display: flex;
+    justify-content: center;
+}
