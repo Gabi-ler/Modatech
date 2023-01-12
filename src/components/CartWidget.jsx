@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../Context/CartContext';
 
-const CartWidget = () => {
-    
+const CartWidget = () => {  
     const { quantityProducts, totalPrice } = useCartContext()
 
     return (

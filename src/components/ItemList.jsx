@@ -1,46 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import Item from './Item';
-import { productos } from '../Data/Products';
 import { useParams } from 'react-router-dom';
 import Loader from './Loader';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 
 const ItemList = () => {
 
     const [products, setProducts] = useState([]);
     const { idCategories } = useParams()
     
-    //aca aplico el useeffect para renderizar este componente una sola vez
     useEffect(() => {
+        const db = getFirestore()
+        const collectionRef = collection(db, 'products')
         if (idCategories) {
-            getProduct().then((resp) => {
-                setProducts(resp.filter(prod => prod.categories === idCategories))
-            }).catch((error) => {
-                console.log(error);
-                // setProducts(error)
-            })
+            const queryfilter = query(collectionRef, where('categories', '==', idCategories))
+            getDocs(queryfilter)
+                .then(resp => setProducts((resp.docs.map(product => ({ id: product.id, ...product.data()}) ))))               
         } else {
-            getProduct().then((resp) => {
-                console.log(resp);
-                setProducts(resp)
-            }).catch((error) => {
-                console.log(error);
-                // setProducts(error)
-            })
+            getDocs(collectionRef)
+                .then(resp => setProducts((resp.docs.map(product => ({ ...product.data(), id: product.id, })))))
         }
 
         return () => setProducts([])
     }, [idCategories]);
-
-    //aca aplico una funcion donde voy a desplegar la petision asi puedo llamarla en el useffect
-    //el set time out solamente para poder simular una tardanza de la peticion
-    const getProduct = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(productos)
-                // reject(`<h1>no se encontraron resultados</h1>`)
-            }, 1500);
-        })
-    }
 
     return (
         <div>
@@ -48,12 +30,8 @@ const ItemList = () => {
             <div className='flex justify-evenly my-5 mx-2 py-3 flex-wrap'>
                 {products.length
                     ?
-                products.map((prod) => <Item
+                    products.map((prod) => <Item
                     key={prod.id}
-                    // title={prod.title}
-                    // description={prod.description}
-                    // price={prod.price}
-                    // picture={prod.picture}
                     {...prod}
                 /> ) 
                 : 

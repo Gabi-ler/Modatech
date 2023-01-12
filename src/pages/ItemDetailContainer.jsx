@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import AddCart from '../components/addCart';
-import ItemCount from '../components/ItemCount';
-import { productos } from '../Data/Products';
-import ItemDetail from './ItemDetail';
+import React from 'react';
+import ItemDetail from '../components/ItemDetail';
 
-
-const ItemDetailContainer = () => {
-    
+const ItemDetailContainer = () => {    
     return (
         <div>
             <ItemDetail/>

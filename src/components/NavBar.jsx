@@ -6,13 +6,11 @@ import CartWidget from './CartWidget';
 
 const NavBar = () => {
 
-    
-
     return (
         <div>
             <div className="barra bg-base-100">
                 <div className="">
-                    <Link to='/' className="btn btn-ghost shadow-xl normal-case text-xl italic logo">MODATECH</Link>
+                    <Link to='/' className="btn btn-ghost shadow-xl normal-case text-xl italic logo">CBATECH</Link>
                 </div>
                 <div className='categories'>
                     <ul>
@@ -24,6 +22,9 @@ const NavBar = () => {
                         </Link>
                         <Link to={'/category/tecnologia'}>
                             <li className='btn-ghost btn-circle cursor-pointer'>Tecnologia</li>
+                        </Link>
+                        <Link to={'/'}>
+                            <li className='btn-ghost btn-circle cursor-pointer'>Nosotros</li>
                         </Link>
                     </ul>
                 </div>

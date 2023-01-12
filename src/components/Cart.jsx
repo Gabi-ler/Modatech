@@ -4,11 +4,9 @@ import { useCartContext } from '../Context/CartContext';
 import ItemCart from './ItemCart';
 import '../style/Cart.css'
 
-
 const Cart = () => {
     const { cart, emptyCart, totalPrice } = useCartContext()
 
-    
     return (
         <div className='bg-slate-200 shadow-2xl rounded-md my-5 mx-2  '>
             <h1 className='pt-5 text-3xl '>Carrito</h1>
@@ -35,14 +33,16 @@ const Cart = () => {
                 <button className='btn my-5 btn-warning ' onClick={() => emptyCart()}>Vaciar carrito</button>
                 }
             </div>
-            <div className='py-3 bordesito mx-5'>                
+            <div className='py-3 sideEdge mx-5'>                
                 <p className='my-4 mr-8 text-right font-bold'>Total de tu compra: ${totalPrice()}</p>
             </div>
             <div>
             {
                 cart.length >= 1
                 &&
-                <Link to={'/carddata'} className='btn btn-success my-4'>Continuar compra</Link>
+                <Link 
+                to={'/carddata'}  
+                className='btn btn-success my-4'>Continuar compra</Link>                
             }
             </div>
         </div>
