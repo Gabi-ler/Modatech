@@ -39,7 +39,7 @@ const CheckOut = () => {
         }
         console.log('levantando la order', order)
         setUser(user);
-        saveOrder(order)     
+        saveOrder(order)    
     }
     
     const saveOrder = async (order) => { 
@@ -58,6 +58,22 @@ const CheckOut = () => {
         })
         setOrderCompleted(true)
     }
+    //intentando deshabilitar el formulario
+    const [buttonValidate, setbuttonValidate] = useState(!false);
+    const validatePurchase = () => { 
+        if (cardNumberRef.length >= 16) {
+            setbuttonValidate(true)
+        } else {
+            setbuttonValidate(false)
+        }
+        // if (emailRef.includes('@')) {
+        //     setbuttonValidate(true)
+        // }else {
+        //     setbuttonValidate(false)
+        // }
+    }
+    
+    
 
     return (
         <>
@@ -66,19 +82,26 @@ const CheckOut = () => {
         <CompletedPurchase user={user} id={purchaseId} />
         :
         <div className='bg-slate-300 flex justify-around'>
-            <div className='border border-black w-64 h-40 my-8'>
-                <p>Cantidad de items: {quantityProducts()} </p>
-                <p>Gastos de envio: ¡Envio gratis!</p>
-                <p>Total: ${totalPrice()}</p>
-                <div className='border border-black'>
-                    <Link to={'/carrito'}>
-                    <div>
-                        <BsFillArrowLeftCircleFill className='text-lg'/>
+            <div className=' w-80 h-40 my-8'>
+                <div className='flex justify-between py-7 bg-white rounded-xl'>
+                    <div className='text-left ml-2'>
+                        <p>Cantidad de items:  </p>
+                        <p>Gastos de envio: </p>
+                        <p className='mt-4 font-bold'>Total:</p>
+                    </div>
+                    <div className='text-right mr-2'>
+                        <p>{quantityProducts()}</p>
+                        <p>¡Envio gratis!</p>
+                        <p className='mt-4 font-bold'>${totalPrice()}</p>
+                    </div>
+                </div>
+                <div className='border border-black flex items-center gap-2 my-5 rounded-xl btn'>
+                    <div className='ml-3'>
+                        <Link to={'/carrito'}><BsFillArrowLeftCircleFill className='text-lg'/></Link>
                     </div>
                     <div>
-                        <p>volver al carrito</p>
-                    </div>
-                    </Link>
+                        <Link to={'/carrito'}><p>volver al carrito</p></Link>
+                    </div>                  
                 </div>
             </div>
             <div className='flex justify-center '>
@@ -102,7 +125,7 @@ const CheckOut = () => {
                             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                             Email
                             </label>
-                            <input ref={emailRef} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="email" placeholder="alguien@gmail.com" required/>
+                            <input ref={emailRef} onChange={validatePurchase} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="email" placeholder="alguien@gmail.com" required/>
                         </div>
                         <div className="w-full px-3">
                             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
@@ -140,7 +163,7 @@ const CheckOut = () => {
                             <input ref={ccvRef} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="password" placeholder="902" required/>
                         </div>
                     </div>
-                    <button onClick={makeOrder} className='w-full btn my-2'>Terminar compra</button>
+                    <button type='submit' onClick={makeOrder} className='w-full btn my-2' disabled={buttonValidate === false}>Terminar compra</button>
                 </form>
             </div>
         </div>

@@ -1,10 +1,14 @@
 .barra {
-   background-color: darkcyan;
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+    background-color: darkcyan;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position:sticky; */
+    top: 0;
+    margin-top: 0;
 }
+
 .logo {
     background-color: yellow;
     margin: 20px;
@@ -13,25 +17,85 @@
 .categories ul {
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.categories li{
-    display:inline;
+.categories li {
+    display: inline;
     padding: 7px;
 }
 
-.categories a{
+.categories a {
     padding: 10px;
     color: white;
     text-transform: uppercase;
-    font-weight:600;
+    font-weight: 600;
     align-items: center;
 }
 
-.cart {
-    display: inline-flex;
+.barra .burguer{
+    padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: white;
+    display: none;
+	opacity: 0;
+	font-size: 1.8rem;
 }
 
 .cart div {
     margin-right: 5px;
+}
+
+@media only screen and (max-width: 790px) {
+    .barra .burguer {
+        display: contents;
+		opacity: 1;
+    }
+
+    .barra .categories {
+        background-color: darkcyan;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        width: 100%;
+        transition: 2s;
+        transform: translateY(-90vh);
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        gap: 40px;
+    }
+
+    .barra .responsive_nav {
+        transform: none;
+    }
+
+    .categories {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .categories ul {
+        display: flex;
+        flex-direction: column;
+    } 
+
+    .categories .btn-clouse {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        
+    }
+
+    .cart{
+        display: flex;
+        align-items: center;
+        margin-right: 0;
+    }
 }

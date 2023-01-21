@@ -12,7 +12,11 @@ const ItemDetail = () => {
     const { id } = useParams()
 
     //HOOK DE USECONTEXT
-    const { addNewProduct } = useCartContext();
+    const { cart, addNewProduct } = useCartContext();
+    
+    const saveCart = () => { 
+        localStorage.setItem("carrito", JSON.stringify(cart))
+    }
 
     useEffect(() => {
         const db = getFirestore()
@@ -27,6 +31,7 @@ const ItemDetail = () => {
     const onAdd = (cantidad) => {
         const newProduct = { ...prod, cantidad }
         addNewProduct(newProduct)
+        saveCart()
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -35,7 +40,6 @@ const ItemDetail = () => {
             timer: 1500
         })
         setChangeButton(false)
-        console.log(cantidad);
     }
 
     return (

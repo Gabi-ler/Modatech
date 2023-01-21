@@ -10,6 +10,7 @@ import CartContext from './Context/CartContext';
 import ItemCart from './components/ItemCart';
 import CheckOut from './pages/CheckOut';
 import CompletedPurchase from './pages/CompletedPurchase.jsx'
+// import Navegador from './components/Navegador';
 
 
 function App() {

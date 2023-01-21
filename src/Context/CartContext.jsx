@@ -14,7 +14,7 @@ const CartContext = ({ children }) => {
 
     const addNewProduct = (prod) => {
         const oldProducts = cart.find((currentProduct) => currentProduct.id === prod.id)
-
+        
         if (!oldProducts) {
             const newCart = [...cart, prod]
             setCart(newCart)
@@ -29,9 +29,8 @@ const CartContext = ({ children }) => {
             })
             setCart(newCart)
         }
+        // saveCart()
     }
-
-    console.log(cart);
 
     const deleteProduct = (id) => {
         const newCart = cart.filter((currentProduct) => currentProduct.id !== id)

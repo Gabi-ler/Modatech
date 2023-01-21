@@ -6,7 +6,7 @@ import '../style/Cart.css'
 
 const Cart = () => {
     const { cart, emptyCart, totalPrice } = useCartContext()
-
+    
     return (
         <div className='bg-slate-200 shadow-2xl rounded-md my-5 mx-2  '>
             <h1 className='pt-5 text-3xl '>Carrito</h1>

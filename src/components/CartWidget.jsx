@@ -14,7 +14,7 @@ const CartWidget = () => {
                             <span className="badge badge-sm indicator-item">{quantityProducts()}</span>
                         </div>
                     </label>
-                    <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+                    <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow z-10">
                         <div className="card-body items-center">
                             <span className="font-bold text-lg">{quantityProducts()}</span>
                             <span className="text-info">Subtotal: ${totalPrice()}</span>
