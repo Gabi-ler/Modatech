@@ -163,7 +163,9 @@ const CheckOut = () => {
                             <input ref={ccvRef} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="password" placeholder="902" required/>
                         </div>
                     </div>
-                    <button type='submit' onClick={makeOrder} className='w-full btn my-2' disabled={buttonValidate === false}>Terminar compra</button>
+                    <button type='submit' onClick={makeOrder} className='w-full btn my-2'
+                    //  disabled={buttonValidate === false}
+                    >Terminar compra</button>
                 </form>
             </div>
         </div>
